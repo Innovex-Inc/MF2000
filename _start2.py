@@ -101,9 +101,9 @@ def converse():
                     if "exit" in user_input.lower():
                         speak_text("Goodbye!")
                         return
-                    elif "write essay" in user_input.lower():
+                    elif "write essay" in user_input.lower():#essay module
                         speak_text("What's the topic for the essay?")
-                        audio = recognizer.listen(source)
+                        audio = recognizer.listen(source)#listens to topic given by user
                         essay_prompt = transcribe_audio_to_text(audio)
                         print("Essay prompt:", essay_prompt)
                         essay = generate_response(essay_prompt)
@@ -111,8 +111,8 @@ def converse():
                             speak_text(essay)
                     elif "search Google" in user_input.lower():
                         search_google(user_input)
-                    elif "tell joke" in user_input.lower():
-                        setup, punchline = get_joke()
+                    elif "tell joke" in user_input.lower():#joke module
+                        setup, punchline = get_joke()#gets the joke from database
                         if setup and punchline:
                             joke = f"{setup}. {punchline}"
                             speak_text(joke)
